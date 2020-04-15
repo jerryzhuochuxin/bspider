@@ -1,15 +1,15 @@
-package siteinfo
+package spider
 
 import (
+	"bspider/mongodb/dao"
+	"bspider/mongodb/dao/model"
+	"bspider/object/engineBo"
 	"bytes"
 	"github.com/gocolly/colly"
 	"github.com/thedevsaddam/gojsonq"
-	"bspider/engine"
-	"bspider/model"
-	"bspider/mongodb"
 )
 
-func CatchFromWorker(w engine.Worker) {
+func CatchFromWorker(w engineBo.WorkerBo) {
 	c := colly.NewCollector()
 
 	c.OnScraped(func(e *colly.Response) {
@@ -22,7 +22,7 @@ func CatchFromWorker(w engine.Worker) {
 			WebOnline:   int(data["web_online"].(float64)),
 			PlayOnline:  int(data["play_online"].(float64)),
 		}
-		mongodb.InsertSiteInfoToDb(object)
+		dao.InsertSiteInfoToDb(object)
 	})
 
 	c.Visit(w.Url)

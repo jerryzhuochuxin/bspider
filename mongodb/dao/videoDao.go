@@ -1,19 +1,20 @@
-package mongodb
+package dao
 
 import (
+	"bspider/mongodb"
+	"bspider/mongodb/dao/model"
 	"context"
+	"github.com/sirupsen/logrus"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo/options"
-	"bspider/model"
-	"log"
 	"time"
 )
 
 func UpsertVideoWithMidAidChannelsToDb(model model.VideoWithMidAidChannelsDo) []string {
 	urlPre := "https://api.bilibili.com/x/article/archives?ids="
 	var rt []string
-	video := DbCollection.Collection("video")
+	video := mongodb.DbCollection.Collection("video")
 	for _, aid := range model.Aid {
 		filter := bson.M{
 			"aid": aid,
@@ -33,13 +34,13 @@ func UpsertVideoWithMidAidChannelsToDb(model model.VideoWithMidAidChannelsDo) []
 		}
 
 		rt = append(rt, urlPre+aid)
-		log.Printf("upsert video into mongodb success aid is %s", aid)
+		logrus.Info("upsert video into mongodb ", model)
 	}
 	return rt
 }
 
 func UpsertVideoToDb(modelList []model.VideoDo) {
-	video := DbCollection.Collection("video")
+	video := mongodb.DbCollection.Collection("video")
 	for _, model := range modelList {
 		filter := bson.M{
 			"aid": model.Aid,
@@ -74,13 +75,13 @@ func UpsertVideoToDb(modelList []model.VideoDo) {
 		if err != nil {
 			panic(err)
 		}
-		log.Printf("upsert video into mongodb success video is %v", model)
+		logrus.Info("upsert video into mongodb ", model)
 	}
 }
 
 func SelectAidListForVideoUpdate(focus bool) []string {
 	var rt []string
-	video := DbCollection.Collection("video")
+	video := mongodb.DbCollection.Collection("video")
 	filter := bson.M{
 		"focus": focus,
 	}
@@ -104,7 +105,7 @@ func SelectAidListForVideoUpdate(focus bool) []string {
 }
 
 func SelectTitileOfVideoSortByKey(key string) []string {
-	video := DbCollection.Collection("video")
+	video := mongodb.DbCollection.Collection("video")
 	op := options.Find()
 	op.SetLimit(200)
 	op.SetBatchSize(200)
@@ -132,7 +133,7 @@ func SelectTitileOfVideoSortByKey(key string) []string {
 }
 
 func SelectKeyByCondition(key string, limitCount int64, skip int64, lastValue int32) []int32 {
-	video := DbCollection.Collection("video")
+	video := mongodb.DbCollection.Collection("video")
 	filter := bson.M{
 		key: bson.M{
 			"$lt": lastValue,
@@ -163,7 +164,7 @@ func SelectKeyByCondition(key string, limitCount int64, skip int64, lastValue in
 }
 
 func EstimatedDocumentCount() int64 {
-	video := DbCollection.Collection("video")
+	video := mongodb.DbCollection.Collection("video")
 	rt, err := video.EstimatedDocumentCount(context.TODO())
 	if err != nil {
 		panic(err)

@@ -53,3 +53,12 @@ type SiteInfoDo struct {
 	WebOnline   int
 	PlayOnline  int
 }
+
+type VideoOnlineDo struct {
+	Title      string
+	Author     string
+	Data       map[string]interface{}
+	Aid        string
+	SubChannel string
+	Channel    string
+}

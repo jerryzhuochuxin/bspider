@@ -1,7 +1,7 @@
 package service
 
 import (
-	"bspider/mongodb"
+	"bspider/mongodb/dao"
 	"time"
 )
 
@@ -10,11 +10,11 @@ func ComputeVideoTankTable() {
 	var mp = make(map[string]interface{})
 	mp["name"] = "video_rank"
 
-	docCount := mongodb.EstimatedDocumentCount()
+	docCount := dao.EstimatedDocumentCount()
 	skipCount := docCount / 100
 	var lastValue int32 = 999999999
 	for _, key := range keys {
-		titles := mongodb.SelectTitileOfVideoSortByKey(key)
+		titles := dao.SelectTitileOfVideoSortByKey(key)
 		var tmpMp = make(map[string]interface{})
 
 		for top := 1; top <= len(titles); top++ {
@@ -22,7 +22,7 @@ func ComputeVideoTankTable() {
 		}
 		var tmpRate []int32
 		for i := 1; i <= 60; i++ {
-			keySelect := mongodb.SelectKeyByCondition(key, 1, skipCount, lastValue)
+			keySelect := dao.SelectKeyByCondition(key, 1, skipCount, lastValue)
 			if len(keySelect) == 0 {
 				continue
 			}
@@ -34,5 +34,5 @@ func ComputeVideoTankTable() {
 		mp[key] = tmpMp
 	}
 	mp["update_time"] = time.Now().Unix()
-	mongodb.UpsertRankTableToDb("video_rank", mp)
+	dao.UpsertRankTableToDb("video_rank", mp)
 }

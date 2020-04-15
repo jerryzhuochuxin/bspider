@@ -1,10 +1,10 @@
 package schedule
 
 import (
-	"github.com/jasonlvhit/gocron"
 	"bspider/service"
 	"bspider/util"
-	"log"
+	"github.com/jasonlvhit/gocron"
+	"github.com/sirupsen/logrus"
 	"time"
 )
 
@@ -27,8 +27,8 @@ func aopFunc(fun util.ScheduleFunc, jobFun interface{}) {
 	err := fun(jobFun)
 	funcName := util.GetFuncName(jobFun)
 	if err != nil {
-		log.Printf(funcName+" fail ", err)
+		logrus.Error(funcName+" fail ", err)
 	} else {
-		log.Printf(funcName + " success ")
+		logrus.Info(funcName + " success ")
 	}
 }

@@ -1,18 +1,18 @@
-package video
+package spider
 
 import (
+	"bspider/constant"
+	"bspider/mongodb/dao"
+	"bspider/mongodb/dao/model"
+	"bspider/object/engineBo"
 	"bytes"
 	"github.com/gocolly/colly"
 	"github.com/thedevsaddam/gojsonq"
-	"bspider/constant"
-	"bspider/engine"
-	"bspider/model"
-	"bspider/mongodb"
 	"strconv"
 	"time"
 )
 
-func CatchFromFucus(w engine.Worker) {
+func CatchVideoFromFucus(w engineBo.WorkerBo) {
 	c := colly.NewCollector()
 
 	c.OnScraped(func(e *colly.Response) {
@@ -37,17 +37,17 @@ func CatchFromFucus(w engine.Worker) {
 			Aid:      aidList,
 			Channels: tList,
 		}
-		urlList := mongodb.UpsertVideoWithMidAidChannelsToDb(model)
-		mongodb.UpsertChannelToDb(model)
+		urlList := dao.UpsertVideoWithMidAidChannelsToDb(model)
+		dao.UpsertChannelToDb(model)
 		for _, url := range urlList {
-			w.Queue.AddWork(engine.Worker{Url: url, Method: CatchFromFucusSecond, Queue: w.Queue})
+			w.Queue.AddWork(engineBo.WorkerBo{Url: url, Method:CatchVideoFromFucusSecond, Queue: w.Queue})
 		}
 	})
 
 	c.Visit(w.Url)
 }
 
-func CatchFromFucusSecond(w engine.Worker) {
+func CatchVideoFromFucusSecond(w engineBo.WorkerBo) {
 	c := colly.NewCollector()
 
 	c.OnScraped(func(e *colly.Response) {
@@ -101,7 +101,7 @@ func CatchFromFucusSecond(w engine.Worker) {
 			}
 			modelList = append(modelList, model)
 		}
-		mongodb.UpsertVideoToDb(modelList)
+		dao.UpsertVideoToDb(modelList)
 	})
 
 	c.Visit(w.Url)

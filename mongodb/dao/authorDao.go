@@ -1,17 +1,18 @@
-package mongodb
+package dao
 
 import (
+	"bspider/mongodb"
+	"bspider/mongodb/dao/model"
 	"context"
+	"github.com/sirupsen/logrus"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo/options"
-	"bspider/model"
-	"log"
 	"time"
 )
 
 func UpsertAuthorToDb(model model.AuthorDo) {
-	author := DbCollection.Collection("author")
+	author := mongodb.DbCollection.Collection("author")
 	if model.CFans != 0 {
 		filter := bson.M{"mid": model.Mid}
 		update := bson.M{
@@ -42,12 +43,12 @@ func UpsertAuthorToDb(model model.AuthorDo) {
 		if err != nil {
 			panic(err)
 		}
-		log.Printf("upsert author into mongodb success mid is %v", model)
+		logrus.Info("upsert author into mongodb ", model)
 	}
 }
 
 func UpsertChannelToDb(model model.VideoWithMidAidChannelsDo) {
-	author := DbCollection.Collection("author")
+	author := mongodb.DbCollection.Collection("author")
 	filter := bson.M{
 		"mid": model.Mid,
 	}
@@ -59,11 +60,11 @@ func UpsertChannelToDb(model model.VideoWithMidAidChannelsDo) {
 	option := options.Update()
 	option.SetUpsert(true)
 	author.UpdateOne(context.TODO(), filter, update, option)
-	log.Printf("upsert video channel to mongodb success channelwrapper is %v", model)
+	logrus.Info("upsert video channel to mongodb ", model)
 }
 
 func UpsertRankToDb(rank map[string]interface{}, mid string) {
-	author := DbCollection.Collection("author")
+	author := mongodb.DbCollection.Collection("author")
 	filter := bson.M{
 		"mid": mid,
 	}
@@ -78,11 +79,11 @@ func UpsertRankToDb(rank map[string]interface{}, mid string) {
 	if err != nil {
 		panic(err)
 	}
-	log.Printf("upsert author rank to mongodb %v", rank)
+	logrus.Info("upsert author rank to mongodb ", rank)
 }
 
 func SelectMidForAuthorByFucus() []string {
-	collection := DbCollection.Collection("author")
+	collection := mongodb.DbCollection.Collection("author")
 	filter := bson.M{"$or": bson.A{
 		bson.M{"focus": true},
 		bson.M{"forceFocus": true}},
@@ -108,7 +109,7 @@ func SelectMidForAuthorByFucus() []string {
 }
 
 func AggregateForAuthorByMid(model model.AuthorDo) []primitive.M {
-	author := DbCollection.Collection("author")
+	author := mongodb.DbCollection.Collection("author")
 
 	agg := bson.A{
 		bson.M{"$match": bson.M{"mid": model.Mid}},
@@ -136,7 +137,7 @@ func AggregateForAuthorByMid(model model.AuthorDo) []primitive.M {
 }
 
 func CountAuthorCountByKey(key string) int64 {
-	author := DbCollection.Collection("author")
+	author := mongodb.DbCollection.Collection("author")
 	result, err := author.CountDocuments(context.TODO(), bson.M{key: bson.M{"$exists": 1}})
 	if err != nil {
 		panic(err)
@@ -145,7 +146,7 @@ func CountAuthorCountByKey(key string) int64 {
 }
 
 func SelectKey(key string) []map[string]interface{} {
-	author := DbCollection.Collection("author")
+	author := mongodb.DbCollection.Collection("author")
 	op := options.Find()
 	op.SetProjection(bson.M{"mid": 1, "rank": 1, key: 1})
 	op.SetSort(bson.M{key: -1})

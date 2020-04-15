@@ -1,15 +1,16 @@
-package mongodb
+package dao
 
 import (
+	"bspider/mongodb"
+	"bspider/mongodb/dao/model"
 	"context"
+	"github.com/sirupsen/logrus"
 	"go.mongodb.org/mongo-driver/bson"
-	"bspider/model"
-	"log"
 	"time"
 )
 
 func InsertSiteInfoToDb(object model.SiteInfoDo) {
-	siteInfo := DbCollection.Collection("siteInfo")
+	siteInfo := mongodb.DbCollection.Collection("siteInfo")
 	inJson := bson.M{
 		"region_count": object.RegionCount,
 		"all_count":    object.AllCount,
@@ -21,5 +22,5 @@ func InsertSiteInfoToDb(object model.SiteInfoDo) {
 	if err != nil {
 		panic(err)
 	}
-	log.Printf("insert siteInto to mongodb %v", object)
+	logrus.Info("insert siteInto to mongodb ", object)
 }

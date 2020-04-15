@@ -1,20 +1,20 @@
 package service
 
 import (
-	"go.mongodb.org/mongo-driver/bson/primitive"
-	"bspider/mongodb"
+	"bspider/mongodb/dao"
 	"bspider/util"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 	"time"
 )
 
 func ComputeAuthorTankTable() {
 	keys := []string{"cFans", "cArchive_view", "cArticle_view"}
 	keysHelp := map[string]string{keys[0]: "fans", keys[1]: "archiveView", keys[2]: "articleView"}
-	count := mongodb.CountAuthorCountByKey(keys[0])
+	count := dao.CountAuthorCountByKey(keys[0])
 
 	for _, eachKey := range keys {
 
-		authors := mongodb.SelectKey(eachKey)
+		authors := dao.SelectKey(eachKey)
 		eachRank := keysHelp[eachKey] + "Rank"
 		eachDRank := "d" + keysHelp[eachKey] + "Rank"
 		eachPRank := "p" + keysHelp[eachKey] + "Rank"
@@ -48,7 +48,7 @@ func ComputeAuthorTankTable() {
 			if eachKey == "cArchive_view" {
 				rank["updateTime"] = time.Now().Unix()
 			}
-			mongodb.UpsertRankToDb(rank, eachAuthor["mid"].(string))
+			dao.UpsertRankToDb(rank, eachAuthor["mid"].(string))
 		}
 	}
 }

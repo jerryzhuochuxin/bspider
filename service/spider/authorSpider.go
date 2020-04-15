@@ -1,17 +1,17 @@
-package author
+package spider
 
 import (
+	"bspider/mongodb/dao"
+	"bspider/mongodb/dao/model"
+	"bspider/object/engineBo"
 	"bytes"
 	"github.com/gocolly/colly"
 	"github.com/thedevsaddam/gojsonq"
 	"gopkg.in/xmlpath.v1"
-	"bspider/engine"
-	"bspider/model"
-	"bspider/mongodb"
 	"time"
 )
 
-func CatchFromTank(w engine.Worker) {
+func CatchAuthorFromTank(w engineBo.WorkerBo) {
 	c := colly.NewCollector()
 	c.Limit(&colly.LimitRule{
 		DomainGlob:  "*",
@@ -29,7 +29,7 @@ func CatchFromTank(w engine.Worker) {
 		it := path.Iter(node)
 		for it.Next() {
 			mid := it.Node().String()[21:]
-			w.Queue.AddWork(engine.Worker{Url: urlPre + mid, Method: CatchFromTankSecond})
+			w.Queue.AddWork(engineBo.WorkerBo{Url: urlPre + mid, Method: CatchAuthorFromTankSecond})
 		}
 	})
 
@@ -39,7 +39,7 @@ func CatchFromTank(w engine.Worker) {
 	}
 }
 
-func CatchFromTankSecond(w engine.Worker) {
+func CatchAuthorFromTankSecond(w engineBo.WorkerBo) {
 	c := colly.NewCollector()
 	c.Limit(&colly.LimitRule{
 		DomainGlob:  "*",
@@ -74,7 +74,7 @@ func CatchFromTankSecond(w engine.Worker) {
 				"article":   tp.CArticle,
 				"datetime":  time.Now().Unix(),
 			}
-			mongodb.UpsertAuthorToDb(tp)
+			dao.UpsertAuthorToDb(tp)
 		}
 	})
 
@@ -84,7 +84,7 @@ func CatchFromTankSecond(w engine.Worker) {
 	}
 }
 
-func CatchFromFucus(w engine.Worker) {
+func CatchAuthorFromFucus(w engineBo.WorkerBo) {
 	c := colly.NewCollector()
 
 	c.Limit(&colly.LimitRule{
@@ -131,7 +131,7 @@ func CatchFromFucus(w engine.Worker) {
 				"datetime":  time.Now().Unix(),
 			}
 			urlPre := "https://api.bilibili.com/x/space/upstat?mid="
-			nw := engine.Worker{Url: urlPre + model.Mid, Data: model, Queue: w.Queue, Method: CatchFromFucusSecond}
+			nw := engineBo.WorkerBo{Url: urlPre + model.Mid, Data: model, Queue: w.Queue, Method: CatchAuthorFromFucusSecond}
 			w.Queue.AddWork(nw)
 		}
 	})
@@ -139,7 +139,7 @@ func CatchFromFucus(w engine.Worker) {
 	c.Visit(w.Url)
 }
 
-func CatchFromFucusSecond(w engine.Worker) {
+func CatchAuthorFromFucusSecond(w engineBo.WorkerBo) {
 	c := colly.NewCollector()
 	c.Limit(&colly.LimitRule{
 		DomainRegexp: "*",
@@ -154,13 +154,13 @@ func CatchFromFucusSecond(w engine.Worker) {
 		model.CArticleView = int(data["article"].(map[string]interface{})["view"].(float64))
 		model.CLike = int(data["likes"].(float64))
 		model.CRate = 0
-		re := mongodb.AggregateForAuthorByMid(model)
+		re := dao.AggregateForAuthorByMid(model)
 		for _, v := range re {
 			deltaSeconds := float32(time.Now().Unix() - v["datetime"].(int64))
 			deltaFans := float32(int32(model.CFans) - v["fans"].(int32))
 			model.CRate = int(deltaFans / deltaSeconds * 86400)
 		}
-		mongodb.UpsertAuthorToDb(model)
+		dao.UpsertAuthorToDb(model)
 	})
 	c.Visit(w.Url)
 }
