@@ -21,5 +21,3 @@ func SetDb(url string, dbName string) {
 	DbCollection = client.Database(dbName)
 	logrus.Debug("dbUrl is:" + url + " dbName is:" + dbName)
 }
-
-//clientOptions := options.Client().ApplyURI("mongodb://user:123456@localhost:27017/biliob?authMechanism=SCRAM-SHA-256")
