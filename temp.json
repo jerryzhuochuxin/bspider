@@ -1,0 +1,63 @@
+{
+  "code": 0,
+  "message": "0",
+  "ttl": 1,
+  "data": {
+    "582573081": {
+      "aid": 582573081,
+      "videos": 1,
+      "tid": 17,
+      "tname": "单机游戏",
+      "copyright": 1,
+      "pic": "http://i1.hdslb.com/bfs/archive/802035a7d936849f94692ac8f91d1eca911f9022.jpg",
+      "title": "妙龄女子一人在家中打游戏竟然忘记！？",
+      "pubdate": 1585902906,
+      "ctime": 1585797792,
+      "desc": "游戏名称：I wanna wanna\n第一次做游戏类视频，多多包涵呀~",
+      "state": 0,
+      "attribute": 16512,
+      "duration": 244,
+      "mission_id": 13106,
+      "rights": {
+        "bp": 0,
+        "elec": 0,
+        "download": 0,
+        "movie": 0,
+        "pay": 0,
+        "hd5": 0,
+        "no_reprint": 1,
+        "autoplay": 1,
+        "ugc_pay": 0,
+        "is_cooperation": 0,
+        "ugc_pay_preview": 0,
+        "no_background": 0
+      },
+      "owner": {
+        "mid": 19493608,
+        "name": "暮肆_Mousse",
+        "face": "http://i1.hdslb.com/bfs/face/363d10d0cc882ac23b6d9a380513ad8a9a8c7208.jpg"
+      },
+      "stat": {
+        "aid": 582573081,
+        "view": 11298,
+        "danmaku": 242,
+        "reply": 226,
+        "favorite": 264,
+        "coin": 796,
+        "share": 25,
+        "now_rank": 0,
+        "his_rank": 0,
+        "like": 2430,
+        "dislike": 0
+      },
+      "dynamic": "#搞笑##i wanna##单机联机#",
+      "cid": 172780124,
+      "dimension": {
+        "width": 1280,
+        "height": 720,
+        "rotate": 0
+      },
+      "bvid": "BV1F64y1u7nw"
+    }
+  }
+}

@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ac5a0985-877f-47ad-9cbf-92ed7656c076" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="bspider" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go Application" />
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="C:\Go" />
+  <component name="ProjectId" id="1a54mcbofZ5FDwjNbJAlVxy0KPE" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="configurable.Global.GOPATH.is.expanded" value="true" />
+    <property name="configurable.Module.GOPATH.is.expanded" value="false" />
+    <property name="configurable.Project.GOPATH.is.expanded" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../leet" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\33713\go\src\bspider\service\spider\video" />
+      <recent name="C:\Users\33713\go\src\bspider\service\spider\author" />
+      <recent name="C:\Users\33713\go\src\bspider\service" />
+      <recent name="C:\Users\33713\go\src\bspider\json" />
+      <recent name="C:\Users\33713\go\src\bspider\dataDealwith\main" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go Build.go build bspider">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="bspider" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/" />
+      <package value="bspider" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build bspider" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="bspider" />
+      <working_directory value="$PROJECT_DIR$/../bspider/" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/../bspider/main.go" />
+      <package value="bspider" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestCatchFromWorker in bspider/service/spider/siteinfo" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="bspider" />
+      <working_directory value="$PROJECT_DIR$/service/spider/siteinfo" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="bspider/service/spider/siteinfo" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestCatchFromWorker$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestCatchOnlineFromWorker in bspider/service/spider/online" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="bspider" />
+      <working_directory value="$PROJECT_DIR$/service/spider/online" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="bspider/service/spider/online" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestCatchOnlineFromWorker$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestInitWorkerForSiteInfo in bspider/service/spider/siteinfo" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="bspider" />
+      <working_directory value="$PROJECT_DIR$/service/spider/siteinfo" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="bspider/service/spider/siteinfo" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestInitWorkerForSiteInfo$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestSelectKey in bspider/mongodb (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="bspider" />
+      <working_directory value="$PROJECT_DIR$/mongodb" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="bspider/mongodb" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestSelectKey$" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="bspider" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="DIRECTORY" />
+      <package value="bspider" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Go Test.TestSelectKey in bspider/mongodb (1)" />
+      <item itemvalue="Go Test.TestInitWorkerForSiteInfo in bspider/service/spider/siteinfo" />
+      <item itemvalue="Go Test.TestCatchFromWorker in bspider/service/spider/siteinfo" />
+      <item itemvalue="Go Test.TestCatchOnlineFromWorker in bspider/service/spider/online" />
+      <item itemvalue="Go Build.go build bspider" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build bspider" />
+        <item itemvalue="Go Test.TestCatchOnlineFromWorker in bspider/service/spider/online" />
+        <item itemvalue="Go Test.TestCatchFromWorker in bspider/service/spider/siteinfo" />
+        <item itemvalue="Go Test.TestSelectKey in bspider/mongodb (1)" />
+        <item itemvalue="Go Test.TestInitWorkerForSiteInfo in bspider/service/spider/siteinfo" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="447" y="71" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586602711076">
+      <screen x="0" y="0" width="1536" height="832" />
+    </state>
+    <state x="447" y="71" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.832@0.0.1536.832" timestamp="1586602711076" />
+    <state x="488" y="59" key="#go_build_bspider" timestamp="1586886948281">
+      <screen x="0" y="0" width="1536" height="832" />
+    </state>
+    <state x="488" y="59" key="#go_build_bspider/0.0.1536.832@0.0.1536.832" timestamp="1586886948281" />
+    <state x="488" y="60" key="#go_build_bspider" timestamp="1586012331802">
+      <screen x="0" y="0" width="1536" height="832" />
+    </state>
+    <state x="488" y="60" key="#go_build_bspider/0.0.1536.832@0.0.1536.832" timestamp="1586012331802" />
+    <state x="548" y="171" key="FileChooserDialogImpl" timestamp="1586887269349">
+      <screen x="0" y="0" width="1536" height="832" />
+    </state>
+    <state x="548" y="171" key="FileChooserDialogImpl/0.0.1536.832@0.0.1536.832" timestamp="1586887269349" />
+    <state width="1493" height="515" key="GridCell.Tab.0.bottom" timestamp="1586887632693">
+      <screen x="0" y="0" width="1536" height="832" />
+    </state>
+    <state width="1493" height="515" key="GridCell.Tab.0.bottom/0.0.1536.832@0.0.1536.832" timestamp="1586887632693" />
+    <state width="1493" height="515" key="GridCell.Tab.0.center" timestamp="1586887632693">
+      <screen x="0" y="0" width="1536" height="832" />
+    </state>
+    <state width="1493" height="515" key="GridCell.Tab.0.center/0.0.1536.832@0.0.1536.832" timestamp="1586887632693" />
+    <state width="1493" height="515" key="GridCell.Tab.0.left" timestamp="1586887632692">
+      <screen x="0" y="0" width="1536" height="832" />
+    </state>
+    <state width="1493" height="515" key="GridCell.Tab.0.left/0.0.1536.832@0.0.1536.832" timestamp="1586887632692" />
+    <state width="1493" height="515" key="GridCell.Tab.0.right" timestamp="1586887632693">
+      <screen x="0" y="0" width="1536" height="832" />
+    </state>
+    <state width="1493" height="515" key="GridCell.Tab.0.right/0.0.1536.832@0.0.1536.832" timestamp="1586887632693" />
+    <state width="1493" height="304" key="GridCell.Tab.1.bottom" timestamp="1586834446979">
+      <screen x="0" y="0" width="1536" height="832" />
+    </state>
+    <state width="1493" height="304" key="GridCell.Tab.1.bottom/0.0.1536.832@0.0.1536.832" timestamp="1586834446979" />
+    <state width="1493" height="304" key="GridCell.Tab.1.center" timestamp="1586834446979">
+      <screen x="0" y="0" width="1536" height="832" />
+    </state>
+    <state width="1493" height="304" key="GridCell.Tab.1.center/0.0.1536.832@0.0.1536.832" timestamp="1586834446979" />
+    <state width="1493" height="304" key="GridCell.Tab.1.left" timestamp="1586834446979">
+      <screen x="0" y="0" width="1536" height="832" />
+    </state>
+    <state width="1493" height="304" key="GridCell.Tab.1.left/0.0.1536.832@0.0.1536.832" timestamp="1586834446979" />
+    <state width="1493" height="304" key="GridCell.Tab.1.right" timestamp="1586834446979">
+      <screen x="0" y="0" width="1536" height="832" />
+    </state>
+    <state width="1493" height="304" key="GridCell.Tab.1.right/0.0.1536.832@0.0.1536.832" timestamp="1586834446979" />
+    <state x="270" y="58" key="SettingsEditor" timestamp="1586602613888">
+      <screen x="0" y="0" width="1536" height="832" />
+    </state>
+    <state x="270" y="58" key="SettingsEditor/0.0.1536.832@0.0.1536.832" timestamp="1586602613888" />
+    <state width="775" height="423" key="XDebugger.FullValuePopup" timestamp="1586419594136">
+      <screen x="0" y="0" width="1536" height="832" />
+    </state>
+    <state width="775" height="423" key="XDebugger.FullValuePopup/0.0.1536.832@0.0.1536.832" timestamp="1586419594136" />
+    <state x="542" y="105" width="451" height="618" key="com.goide.refactor.extractInterface.GoExtractInterfaceDialog" timestamp="1586373554158">
+      <screen x="0" y="0" width="1536" height="832" />
+    </state>
+    <state x="542" y="105" width="451" height="618" key="com.goide.refactor.extractInterface.GoExtractInterfaceDialog/0.0.1536.832@0.0.1536.832" timestamp="1586373554158" />
+    <state x="542" y="129" key="com.goide.refactor.move.GoMoveDeclarationDialog" timestamp="1586373538873">
+      <screen x="0" y="0" width="1536" height="832" />
+    </state>
+    <state x="542" y="129" key="com.goide.refactor.move.GoMoveDeclarationDialog/0.0.1536.832@0.0.1536.832" timestamp="1586373538873" />
+    <state x="93" y="93" width="1350" height="646" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1586355582361">
+      <screen x="0" y="0" width="1536" height="832" />
+    </state>
+    <state x="93" y="93" width="1350" height="646" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.832@0.0.1536.832" timestamp="1586355582361" />
+    <state x="560" y="63" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1586797867095">
+      <screen x="0" y="0" width="1536" height="832" />
+    </state>
+    <state x="560" y="63" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.832@0.0.1536.832" timestamp="1586797867095" />
+    <state x="511" y="35" key="refactoring.ChangeSignatureDialog" timestamp="1586374085420">
+      <screen x="0" y="0" width="1536" height="832" />
+    </state>
+    <state x="511" y="35" key="refactoring.ChangeSignatureDialog/0.0.1536.832@0.0.1536.832" timestamp="1586374085420" />
+    <state x="431" y="153" width="672" height="678" key="search.everywhere.popup" timestamp="1586789674491">
+      <screen x="0" y="0" width="1536" height="832" />
+    </state>
+    <state x="431" y="153" width="672" height="678" key="search.everywhere.popup/0.0.1536.832@0.0.1536.832" timestamp="1586789674491" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/../go.mongodb.org/mongo-driver/mongo/collection.go</url>
+          <line>308</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/../bspider/service/computeVideoTank.go</url>
+          <line>8</line>
+          <option name="timeStamp" value="89" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/../bspider/service/computeVideoTank.go</url>
+          <line>35</line>
+          <option name="timeStamp" value="92" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/../bspider/service/computeAuthorTank.go</url>
+          <line>16</line>
+          <option name="timeStamp" value="94" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/../bspider/service/spider/online/onlineSpider.go</url>
+          <line>25</line>
+          <option name="timeStamp" value="98" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/../bspider/service/spider/online/onlineSpider.go</url>
+          <line>27</line>
+          <option name="timeStamp" value="100" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/../bspider/service/spider/author/authorSpider.go</url>
+          <line>24</line>
+          <option name="timeStamp" value="101" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
